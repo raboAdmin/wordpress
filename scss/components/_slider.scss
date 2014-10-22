@@ -1,0 +1,177 @@
+
+.tp-bullets.simplebullets.round {
+  .bullet {
+    background: #fff;
+    border-radius: 50%;
+    border: 1px solid #9B9B9B;
+  }
+  .selected {
+    background: #000099;
+    border-radius: 50%;
+  }
+
+}
+.tp-leftarrow.tparrows.default {
+  background-color: #DDD;
+  background-image: image-url("icons/slider-left-arrow.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 90px;
+  width: 60px;
+  &:hover {
+    background-color: #A29FDA;
+  }
+}
+
+.tp-rightarrow.tparrows.default {
+  background-color: #DDD;
+  background-image: image-url("icons/slider-right-arrow.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 90px;
+  width: 60px;
+  &:hover {
+    background-color: #A29FDA;
+  }
+}
+
+#single_interest_rate_callout .interest-rate {
+  height: 230px;
+  position: relative;
+  display: block;
+}
+
+#single_interest_rate_callout .interest-rate span {
+  position: absolute;
+  line-height: normal !important;
+}
+
+#single_interest_rate_callout .interest-rate .integer {
+  top: 0;
+  left: 0;
+  line-height: 1 !important;
+}
+
+#single_interest_rate_callout .interest-rate .decimal {
+  top: 0;
+  left: 172px;
+}
+
+#single_interest_rate_callout .interest-rate .percentage {
+  top: 20px;
+  left: 418px;
+}
+
+#single_interest_rate_callout .interest-rate .per-anum {
+  top: 100px;
+  left: 418px;
+}
+
+#single_interest_rate_callout #interest-details {
+  position:relative;
+  top: -40px;
+  left: -35px;
+}
+
+
+@media only screen and (min-width: 768px) {
+  #single_interest_rate_callout #interest-details,
+  #single_interest_rate_callout .interest-rate {
+
+    width: 590px;
+    margin: 0 auto !important;
+  }
+}
+
+@include media(large-up) {
+  #product-comparison {
+
+    width: 1000px;
+  }
+}
+
+
+.rabo-slider {
+  @-moz-document url-prefix() {
+    .green p a, .grey p a {
+      padding: 0;
+    }
+  }
+  h1 {
+    color: $brand-blue;
+    line-height: 50px;
+    padding-bottom: 15px;
+  }
+  p {
+    font-size: 21px;
+
+  }
+  .rabo-button {
+    margin-top: 30px;
+    p a {
+      padding: 0;
+    }
+  }
+  .green p a, .grey p a {
+    padding: 15px 20px;
+    line-height: 1;
+  }
+
+  .interest-rate {
+    .decimal, .percentage, .per-anum, .account-type, .integer {
+      font-style: italic;
+      color: $brand-blue;
+    }
+    .decimal {
+      font-size: 200px;
+      top: -95px;
+    }
+    .percentage {
+      font-size: 100px;
+      top: -162px;
+      left: 8px;
+    }
+    .per-anum {
+      font-size: 70px;
+      top: -107px;
+      left: -67px;
+    }
+    .account-type {
+      font-size: 37.5px;
+      text-align: right;
+      //      font-weight: bold;
+    }
+    .integer {
+      font-size: 350px;
+    }
+  }
+}
+
+#default-1 {
+  max-width: 475px;
+}
+
+#default-2 {
+  h1, p {
+    text-align: center;
+  }
+  .rabo-button a {
+    display: block;
+    margin: 0 auto;
+  }
+
+}
+#interest-details {
+  p {
+    font-size: 16px;
+    text-align: right;
+    color: $brand-blue;
+  }
+  .rabo-button{
+    margin-top: 15px;
+    a {
+      float: right;
+      width: 225px;
+    }
+  }
+}

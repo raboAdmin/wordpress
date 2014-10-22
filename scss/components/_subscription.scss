@@ -1,0 +1,36 @@
+
+
+.newsletter {
+    .green {
+      @extend .green-button;
+      border: none;
+      width: 225px;
+      text-align: left;
+      padding: 13px 21px;
+      display: block;
+      margin: 0 auto;
+      font-size: 22px;
+    }
+    label {
+      margin-bottom: 10px;
+    }
+    input, select {
+      box-shadow: none;
+      font-size: 18px;
+      border: 1px solid #ddd;
+      height: 50px;
+      padding-left: 15px;
+      font-weight: 200;
+      margin-bottom: 35px;
+    }
+    input {
+      background: #fafafa;
+    }
+    h3, .form-intro {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    h3 {
+      color: $brand-blue;
+    }
+}

@@ -1,0 +1,8 @@
+.sass-cache
+.DS_Store
+node_modules
+fnd
+# ignore Grunt-generated files
+style.css
+src
+dist

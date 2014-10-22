@@ -1,0 +1,130 @@
+$header-gradient: 'header-gradient.jpg';
+
+// header
+.main-header {
+  background: image-url($header-gradient) repeat-x;
+  height: image-height($header-gradient);
+  border-bottom: 1px solid #bababa;
+
+  @include box-shadow(0 1px 3px rgba(#000, 0.2));
+
+  h1 {
+    padding: 0;
+    margin-top: 13px;
+    display: inline-block;
+    a {
+      @include ir-button('rabo-direct-logo.png');
+      display: inline-block;
+
+    }
+  }
+
+  #header-right {
+    //    display: none;
+    position: relative;
+
+    p, nav {
+      text-align: right;
+    }
+  }
+
+  .tel {
+    margin-bottom: 0;
+    margin-top: 5px;
+
+    a {
+      //      font-weight: 600;
+      @include myriad(600, italic);
+      //      font-style: italic;
+      color: #009;
+      @include rem-font(24);
+    }
+
+    &:before {
+      content: '';
+      display: inline-block;
+      @include bg-image('icons/phone.png');
+      margin-right: 3px;
+      //      background: sprite($icons, phone) no-repeat;
+      //      width: image-width(sprite-file($icons, phone));
+      //      height: image-height(sprite-file($icons, phone));
+
+    }
+
+  }
+
+  .hours {
+    //    font-weight: 600;
+    //    font-style: italic;
+    color: #666;
+    margin-bottom: 7px;
+    margin-top: -8px;
+
+    @include myriad(600, italic);
+    @include rem-font(12);
+  }
+
+  nav {
+    //    display: none;
+
+    ul {
+      list-style-type: none;
+    }
+
+  }
+}
+
+@include media(medium-up) {
+  .main-header {
+
+    #header-right {
+      position: static;
+      //    display: block;
+    }
+
+    nav {
+      //    display: block;
+      float: right;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      li {
+        float: left;
+        border-left: 1px solid #666;
+        margin-left: 10px;
+        padding-left: 10px;
+
+        &:first-child {
+          border-left: 0;
+          padding-left: 0;
+        }
+      }
+
+      a {
+        color: #333;
+        display: block;
+        &:hover {
+          color: #FF6600;
+        }
+
+        @include verdana();
+        @include rem-font(11);
+      }
+    }
+  }
+}
+
+@include media(large-up) {
+  .main-header {
+    nav {
+      li {
+        padding-left: 22px;
+        margin-left: 22px;
+      }
+    }
+  }
+}

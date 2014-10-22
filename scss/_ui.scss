@@ -1,0 +1,34 @@
+// Error message rendered in get-interest-rates.js
+
+.error-message {
+
+  position: fixed;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  top: 0;
+  z-index: 9999;
+
+  &.interest-rate-error {
+    background-color: #FF7F00;
+    color: #fff;
+  }
+}
+
+::-webkit-input-placeholder {
+  color: #333;
+  opacity: 1;
+  font-weight: 200;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: #333;
+  opacity: 1;
+  font-weight: 200;
+}
+
+:-ms-input-placeholder {
+  color: #333;
+  opacity: 1;
+  font-weight: 200;
+}

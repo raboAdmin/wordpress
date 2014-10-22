@@ -1,0 +1,15 @@
+/* line 1, ../../scss/components/subscription.scss */
+.submit-button {
+  width: 140px;
+  height: 45px;
+  background: #2940d0;
+  color: #fff;
+  font-size: 1.38em;
+  padding-left: 0;
+  font-weight: 300;
+  -moz-transition: background 250ms;
+  -o-transition: background 250ms;
+  transition: background 250ms;
+  border: none;
+  text-align: center;
+}

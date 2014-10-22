@@ -1,0 +1,600 @@
+#product-comparison {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@include media(large-up) {
+  #product-comparison {
+
+    width: 1000px;
+  }
+}
+
+
+.container {
+  border-bottom: 1px solid #eee;
+  width:100%;
+}
+
+.rabo-slider {
+  h1 {
+    color: $brand-blue;
+
+  }
+  p {
+    font-size: 21px;
+  }
+  .rabo-button {
+    margin-top: 30px;
+  }
+  .interest-rate {
+    .decimal, .percentage, .per-anum, .account-type, .integer {
+      font-style: italic;
+      color: $brand-blue;
+    }
+    .decimal {
+      font-size: 200px;
+      top: -95px;
+    }
+    .percentage {
+      font-size: 100px;
+      top: -162px;
+      left: 8px;
+    }
+    .per-anum {
+      font-size: 70px;
+      top: -107px;
+      left: -67px;
+    }
+    .account-type {
+      font-size: 37.5px;
+      text-align: right;
+      //      font-weight: bold;
+    }
+    .integer {
+      font-size: 350px;
+    }
+  }
+}
+
+#default-1 {
+  max-width: 475px;
+}
+
+#default-2 {
+  h1, p {
+    text-align: center;
+  }
+  .rabo-button a {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+
+#three-tier {
+  .left, .right {
+    .conditions {
+      top: 135px;
+    }
+  }
+  .conditions {
+    width: 160px;
+    left: 125px;
+    top: 190px;
+  }
+}
+
+#five-tier {
+  .conditions {
+    width: 95px;
+    color: #9B9B9B;
+    top: 148px;
+    left: 174px;
+  }
+  .rabodirect {
+    .conditions {
+      top: 168px;
+      color: #000096;
+    }
+  }
+}
+
+.conditions {
+  position: absolute;
+  text-align: right;
+  font-size: 10px;
+  color: #000096;
+  font-weight: bold;
+  font-style: italic;
+  line-height: 14px;
+}
+
+
+
+#interest-details {
+  p {
+    font-size: 16px;
+    text-align: right;
+    color: $brand-blue;
+  }
+  .rabo-button{
+    margin-top: 15px;
+    a {
+      float: right;
+      width: 225px;
+    }
+  }
+}
+
+$interest-rate-font-base: 100px;
+$push-left: 15px;
+
+.main {
+  #five-tier, #three-tier {
+    .wrapper {
+
+      /* ==============================================================
+        Second header iteration: Bank comparison
+      ============================================================== */
+
+      .callout-bank-comparison {
+        h1 {
+          text-align: center;
+        }
+        .bank-comparison {
+          overflow:hidden;
+          position:relative;
+          z-index: 2;
+          //@include pie-clearfix;
+          //margin-bottom: 40px;
+        }
+        .comparison-footnote {
+          //background-color: #fff;
+          padding: 30px 0px;
+//          margin: 0 10px;
+          position: relative;
+          top: -21px;
+          z-index: 1;
+        }
+        .bank {
+          padding: 30px 0;
+          border: 1px solid #E4E4E4;
+          margin-top: 20px;
+          position: relative;
+          background-color: #f4f4f4;
+
+          //@include background-image(linear-gradient(#fff, #F4F4F4));
+          h1, h2, h3, li {
+            text-align: center;
+          }
+          h3 {
+            font-size: 20px;
+            //font-weight: bold;
+            margin-bottom: 0;
+            color: #999;
+          }
+          ul {
+            padding-top: 100px;
+            margin-left: 0;
+            li {
+              color: $text-grey;
+              border-top: 1px solid #E4E4E4;
+              font-size: 16px;
+              padding: 10px 15px;
+              line-height: 1.5;
+            }
+          }
+          .interest-rate {
+            text-align: center;
+            position: relative;
+            top: -40px;
+            left: 100px;
+            span {
+              color: #999;
+              font-style: italic;
+            }
+            .integer {
+              left: 20px;
+              font-size: 100px;
+            }
+            .decimal {
+              font-size: 50px;
+              top: 25px;
+              left: 73px;
+            }
+            .percentage {
+              left: 143px;
+              font-size: 18px;
+              top: 40px;
+            }
+            .per-anum {
+              font-size: 18px;
+              left: 143px;
+              top: 55px;
+            }
+          }
+          //@include getInterestRate(80px, 20px);
+          h2 {
+            width: 100%;
+            height: 27px;
+            text-indent: -999em;
+            background-position: center top;
+            background-repeat: no-repeat;
+            padding:0;
+            margin-bottom: 10px;
+          }
+          &.asb {
+            h2 {
+              background-image: inline-image('banks/bank-grey-asb.png');
+            }
+          }
+          &.bnz {
+            h2 {
+              background-image: inline-image('banks/bank-grey-bnz.png');
+              position: relative;
+              top: -11px;
+            }
+          }
+          &.kiwibank {
+            h2 {
+              background-image: inline-image('banks/bank-grey-kiwibank.png');
+            }
+          }
+          &.westpac {
+            h2 {
+              background-image: inline-image('banks/bank-grey-westpac.png');
+            }
+          }
+          &.rabodirect {
+            background: none #fff;
+            h3, .interest-rate span {
+              color: $brand-blue;
+            }
+            h2 {
+              background-image: inline-image('banks/bank-rabodirect-small.png');
+              height: 52px;
+            }
+            ul {
+              li {
+                color: #333;
+              }
+            }
+          }
+        }
+      }
+      /* ==============================================================
+        Third header iteration: RaboDirect product comparison
+      ============================================================== */
+
+      .main {
+        .callout.callout-product-comparison,
+        .callout.callout-bank-comparison  {
+          margin-bottom: 40px;
+          //h1 {
+          //  margin-bottom: 40px;
+          //}
+          & > p {
+            clear:both;
+            line-height: 1.5;
+            font-size: 12px;
+          }
+        }
+      }
+
+      .interest-rate {
+        position: relative;
+        span {
+          font-style: italic;
+        }
+        .integer {
+        }
+        .decimal {
+        }
+        .percentage {
+          font-size: $interest-rate-font-base * .45;
+          top: -35px;
+        }
+        .per-anum {
+          left: -22px;
+          top: -10px;
+        }
+      }
+      .product-comparison {
+        margin-bottom: 40px;
+        .product {
+          background-color: #F2F5FA;
+          border: 1px solid #e2e2e2;
+          padding: 20px 40px 0 40px;
+          margin-top: 30px;
+          .rabo-button a {
+            width: 230px;
+            margin: 0 auto;
+          }
+          h2 {
+            color: $brand-blue;
+            font-size: 28px;
+            font-weight: normal;
+            text-shadow: none;
+            padding-top:0;
+          }
+          h3 {
+            margin-bottom: 20px;
+          }
+          .interest-rate {
+            position: relative;
+            text-align: center;
+            height: 140px;
+            span {
+              color: $brand-blue;
+            }
+            .integer {
+              left: 5px;
+              font-size: 150px;
+              top: -60px;
+            }
+            .decimal {
+              left: 85px;
+              font-size: 80px;
+              top: -26px;
+            }
+            .percentage {
+              left: 195px;
+              font-size: 35px;
+              top: -4px;
+            }
+            .per-anum {
+              font-size: 35px;
+              left: 195px;
+              top: 19px;
+            }
+          }
+          .green-button {
+            display: block;
+            margin-bottom: 20px;
+            width: 100%;
+          }
+          ul {
+            list-style-type: none;
+            text-align: center;
+            margin-left: 0;
+            margin-top: 39px;
+            margin-bottom: 0;
+            li {
+              margin-bottom: 25px;
+              font-size: 18px;
+              color: #333;
+              line-height: 1.5;
+              font-weight: 200;
+            }
+          }
+          &.middle {
+            background: inline-image('icons/best-rate-banner.png') -1px -1px no-repeat #fff;
+            padding: 50px 40px 20px 40px;
+            //margin-top: 0;
+          }
+          //Override Bootstrap
+          &.span4 {
+            margin-left:0;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+.interest-rate {
+  span {
+    position: relative;
+  }
+}
+
+
+
+//Comparison footnote
+.comparison-footnote {
+  clear: both;
+  line-height: 1.9;
+  color: #797F85;
+  p {
+    font-size: 12px;
+    text-align: left;
+    font-weight: normal;
+  }
+}
+
+
+#three-tier {
+  .comparison-footnote p {
+    text-align: center;
+    padding-top: 15px;
+  }
+}
+//interest.co.nz
+
+.interest-website-logo {
+  display: inline-block;
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  background-image: inline-image('banks/interest-website.png');
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  width: 92px;
+  height: 13px;
+}
+
+
+/* ==============================================================
+  Compatibility fixes
+============================================================== */
+
+.no-boxshadow {
+  .features {
+    border-bottom: 1px solid #eee;
+  }
+}
+
+///* ==============================================================
+//  Tablet and up...
+//============================================================== */
+
+@media (max-width: 700px){
+  #five-tier {
+    .wrapper {
+
+      .callout-product-comparison .bank {
+        .interest-rate {
+          text-align: center;
+          position: static;
+          margin: 0 auto;
+          .integer {
+            font-size: 40px;
+            position: static;
+          }
+          .decimal {
+            font-size: 40px;
+            position: static;
+          }
+          .percentage {
+            left: 143px;
+            font-size: 40px;
+            position: static;
+          }
+          .per-anum {
+            font-size: 20px;
+            position: static;
+          }
+        }
+        .conditions {
+          color: #9B9B9B;
+          position: static;
+          text-align: center;
+        }
+        ul {
+          padding-top: 20px;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+
+
+@media #{$small} {
+  //Main callout
+  .main {
+    .callout {
+      h1 {
+        color: $brand-blue;
+        font-size: 45px;
+        margin-bottom: 30px;
+      }
+      .callout.callout-product-comparison,
+      .callout.callout-bank-comparison  {
+        margin-bottom: 10px;
+        h1 {
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+  .conditions {
+    font-size: 13px;
+  }
+  #three-tier {
+    .conditions {
+      top: 165px;
+    }
+    .bank {
+
+    }
+  }
+  #five-tier {
+    .conditions {
+      left: 74px;
+    }
+  }
+
+  //Featured rate
+  $offset-top: 50px;
+
+  $bank-width: 187 / 940 * 100;
+  $bank-width-first: 186 / 940 * 100;
+  //Bank comparison
+  .main #five-tier .wrapper, .main #three-tier .wrapper {
+    div.callout-bank-comparison {
+
+      div.bank {
+        //width: 187px;
+        font-weight: 200;
+        width: #{$bank-width+'%'};
+        float: left;
+        border-left: 0;
+        height: 350px;
+        &:first-child {
+          border-left: 1px solid #E4E4E4;
+          width: #{$bank-width-first+'%'};
+        }
+        .interest-rate {
+          text-align: left;
+          left: 0;
+        }
+        &.bnz {
+          border-right: 0;
+        }
+        &.rabodirect {
+          margin-top: 0;
+          height: 390px;
+          padding: 26px 0 40px;
+          border-left: 1px solid #e4e4e4;
+          ul {
+            top: 182px + 20px;
+          }
+        }
+        ul {
+          margin: 0;
+          padding-top: 25px;
+          position: absolute;
+          top: 182px;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+        p {
+          font-weight: normal;
+
+        }
+      }
+      .comparison-footnote {
+        padding-bottom:0;
+      }
+    }
+
+    //Product comparison
+    .product-comparison {
+      .product {
+        &.middle {
+          margin-top: 0;
+        }
+        &.left {
+          border-right: 0;
+        }
+        &.right{
+          border-left: 0;
+        }
+        .interest-rate {
+          text-align: left;
+        }
+      }
+    }
+
+    .comparison-footnote {
+      clear: both;
+    }
+  }
+
+}

@@ -1,0 +1,115 @@
+.colophon {
+  background: image-url('divider.png') center top no-repeat;
+  padding: 40px 0;
+
+  .columns {
+    text-align: center;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  nav {
+    margin-bottom: 20px;
+
+    li {
+      list-style-type: none;
+      margin-bottom: 5px;
+      //      display: inline-block;
+      //      margin-left: 5px;
+      //      padding-left: 5px;
+      //      line-height: 1;
+    }
+
+    a {
+      color: #333;
+      //      line-height: 1;
+      display: block;
+
+      @include rem-font(14);
+      @include myriad(200);
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+    //    line-height: 26px;
+
+    @include myriad(200);
+    @include rem-font(14);
+  }
+}
+
+
+
+@include media(medium-up) {
+  .colophon {
+    nav {
+      .menu-footer-navigation-container {
+        display: inline-block;
+        margin: 0 auto;
+      }
+    }
+    li {
+      display: block;
+      float: left;
+      margin-left: 15px;
+      margin-bottom: 0;
+      padding-left: 15px;
+      line-height: normal;
+      border-left: 1px solid #ccc;
+
+      &:first-child {
+        border-left: 0;
+        margin-left: 0;
+        padding-left: 0;
+      }
+    }
+    p {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+
+@include media(large-up) {
+  .colophon {
+
+    nav {
+      float: left;
+      margin-bottom: 0;
+      line-height: normal;
+
+      li {
+        display: block;
+        float: left;
+        margin-left: 15px;
+        margin-bottom: 0;
+        padding-left: 15px;
+        line-height: normal;
+        border-left: 1px solid #ccc;
+
+        &:first-child {
+          border-left: 0;
+          margin-left: 0;
+          padding-left: 0;
+        }
+
+        a {
+          line-height: normal;
+          &:hover {
+            color: #FF6600;
+          }
+        }
+      }
+    }
+
+    p {
+      float: right;
+      line-height: normal;
+    }
+  }
+}

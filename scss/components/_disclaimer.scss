@@ -1,0 +1,11 @@
+#terms {
+  p {
+  font-size: 12px;
+  line-height: 1.3;
+  color: #666;
+  letter-spacing: 0.1px;
+    &:first-child {
+      margin-bottom: 5px;
+    }
+  }
+}

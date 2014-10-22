@@ -1,0 +1,38 @@
+// Myriad
+//... ... ...
+
+// Regular
+@include font-face( "Myriad", font-files(
+                "myriad/regular/myriad-regular.woff",
+                "myriad/regular/myriad-regular.ttf",
+                "myriad/regular/myriad-regular.svg" ),
+        "myriad/regular/myriad-regular.eot",
+        400,
+        normal );
+
+//Semi-bold italic
+@include font-face( "Myriad", font-files(
+                "myriad/semibold-italic/semibold-italic.woff",
+                "myriad/semibold-italic/semibold-italic.ttf",
+                "myriad/semibold-italic/semibold-italic.svg" ),
+        "myriad/semibold-italic/semibold-italic.eot",
+        600,
+        italic );
+
+// Bold
+@include font-face( "Myriad", font-files(
+                "myriad/bold/myriad-bold.woff",
+                "myriad/bold/myriad-bold.ttf",
+                "myriad/bold/myriad-bold.svg" ),
+        "myriad/bold/myriad-bold.eot",
+        700,
+        normal );
+
+// Light
+@include font-face( "Myriad", font-files(
+                "myriad/light/myriad-light.woff",
+                "myriad/light/myriad-light.ttf",
+                "myriad/light/myriad-light.svg" ),
+        "myriad/light/myriad-light.eot",
+        200,
+        normal );

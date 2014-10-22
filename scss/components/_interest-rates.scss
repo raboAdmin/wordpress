@@ -1,0 +1,47 @@
+.callout {
+  color: $callout-blue;
+  text-align: center;
+  .heading {
+    color: $callout-blue;
+    text-shadow: 0 1px 1px #fff;
+    font-size: 45px;
+    font-weight: bold;
+    top: 0px;
+  }
+  .interest-rate {
+    font-family: "Myriad", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: block;
+
+    .integer,
+    .decimal,
+    .percentage,
+    .per-anum,
+    .account-type {
+      position: absolute;
+    }
+    .integer {
+      font-size: 280px;
+    }
+  }
+  .decimal {
+    font-size: 150px;
+//    top: -64px;
+    top: 0;
+  }
+  .percentage {
+    font-size: 75px;
+    top: -112px;
+  }
+  .per-anum {
+    font-size: 50px;
+    top: -71px;
+    left: -44px;
+  }
+  .account-type {
+    font-size: 37.5px;
+    text-align: right;
+    font-weight: bold;
+    top: -89px;
+    left: -48px;
+  }
+}

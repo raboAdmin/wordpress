@@ -1,0 +1,53 @@
+.alert-panel {
+  background-color: #FFFAE4;
+  border: 1px solid #FFF2AE;
+  padding: 10px;
+  margin-bottom: 40px;
+  overflow: hidden;
+  i {
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+  }
+
+  p {
+    text-align: left;
+    color: #333;
+    margin-bottom: 0;
+    line-height: normal;
+    display: inline-block;
+    vertical-align: top;
+    padding: 20px;
+  }
+}
+
+@include media(medium-up) {
+  .alert-panel {
+    padding: 13px 50px;
+
+    p {
+      text-align: center;
+      @include rem-font(20);
+
+      i {
+        float: none;
+      }
+      i,
+      span {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .google-chrome-panel {
+    p {
+      i,
+      span {
+        line-height: icons-sprite-height('google-chrome-logo');
+      }
+    }
+  }
+}
+
+

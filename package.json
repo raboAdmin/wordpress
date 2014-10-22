@@ -1,0 +1,29 @@
+{
+  "name": "rabodirect",
+  "version": "0.0.1",
+  "description": "RaboDirect custom Wordpress theme",
+  "keywords": [
+    "wordpress",
+    "foundation"
+  ],
+  "author": "Zing Design",
+  "environment": "development",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZingDesign/RaboDirect.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ZingDesign/RaboDirect/issues"
+  },
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-compass": "^1.0.1",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-nodeunit": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*"
+  }
+}

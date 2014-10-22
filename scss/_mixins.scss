@@ -1,0 +1,366 @@
+// Functions and mixins go in here
+
+// Functions
+
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+// Shorthand function
+
+@function shorthand($prop) {
+  @if($prop == "mg") {
+    $prop: margin;
+    @return $prop;
+  }
+  @if($prop == "mb") {
+    $prop: margin-bottom;
+    @return $prop;
+  }
+  @if($prop == "mt") {
+    $prop: margin-top;
+    @return $prop;
+  }
+  @if($prop == "ml") {
+    $prop: margin-left;
+    @return $prop;
+  }
+  @if($prop == "mr") {
+    $prop: margin-right;
+    @return $prop;
+  }
+  @if($prop == "pd") {
+    $prop: padding;
+    @return $prop;
+  }
+  @if($prop == "pb") {
+    $prop: padding-bottom;
+    @return $prop;
+  }
+  @if($prop == "pt") {
+    $prop: padding-top;
+    @return $prop;
+  }
+  @if($prop == "pl") {
+    $prop: padding-left;
+    @return $prop;
+  }
+  @if($prop == "pr") {
+    $prop: padding-right;
+    @return $prop;
+  }
+  @if($prop == "wd") {
+    $prop: width;
+    @return $prop;
+  }
+  @if($prop == "ht") {
+    $prop: height;
+    @return $prop;
+  }
+  @if($prop == "fs") {
+    $prop: font-size;
+    @return $prop;
+  }
+  @return $prop;
+}
+
+// Mixins
+
+// Custom buttons
+@mixin _btn($font-size:16, $bg-color:$primary-color, $radius:false, $v-padding:10, $h-padding:20, $text-color:#fff, $display:inline-block, $transition:true, $position:false, $border-color:false, $border-width:1){
+  //  font-weight: normal;
+  line-height: normal;
+  text-decoration: none;
+  text-align: center;
+
+  @if $display {
+    display: $display;
+  }
+
+  @if $bg-color {
+    background-color: $bg-color;
+  }
+
+  @if $text-color {
+    color: $text-color;
+  }
+
+  @if $position {
+    position: $position;
+  }
+
+  @if $font-size {
+    @include rem-font($font-size);
+  }
+
+  @if $v-padding and $h-padding {
+    @include rem-val(padding, $v-padding $h-padding);
+  }
+  @else {
+    @if $v-padding {
+      padding-top: $v-padding * 1px;
+      padding-bottom: $v-padding * 1px;
+    }
+
+    @if $h-padding {
+      padding-left: $h-padding * 1px;
+      padding-right: $h-padding * 1px;
+    }
+  }
+
+  @if $radius {
+    @include border-radius(rem-calc($radius));
+  }
+
+  @if $transition {
+    @include transition(background 300ms);
+  }
+
+  @if $border-color {
+    border: ($border-width * 1px) solid $border-color;
+  }
+
+  @if $text-color or $bg-color {
+    &:hover {
+      @if $text-color {
+        color: $text-color;
+      }
+      @if $bg-color {
+        background-color: darken($bg-color, 5%);
+      }
+    }
+  }
+
+  @if $bg-color {
+    &:active {
+      background-color: darken($bg-color, 10%);
+    }
+  }
+
+}
+
+@mixin rem-val($type, $px) {
+  $type: shorthand($type);
+
+  $max: length($px);
+
+  @if $max == 1 {
+    $px: nth($px, 1);
+  }
+
+  @if type_of($px) == "number" {
+    @if unitless($px) {
+      $px: $px * 1px;
+    }
+  }
+
+  $pxValues: ();
+  @for $i from 1 through $max {
+    $_px: nth($px, $i);
+
+    @if unitless($_px) {
+      $_px: $_px * 1px;
+    }
+
+    $pxValues: append($pxValues, $_px);
+  }
+
+  @if $legacy-support {
+    #{$type}: $pxValues;
+  }
+
+  #{$type}: rem-calc($px);
+}
+
+// _r() is an alias for rem-val()
+
+@mixin _r($_type, $_px) {
+  @include rem-val($_type, $_px);
+}
+
+
+// Image replacement
+
+@mixin ir() {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  *text-indent: -9999px;
+
+  &:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+  }
+}
+
+// Image-replacement helper mixins
+
+@mixin bg-image( $img, $display:false, $ir:false ) {
+  background: image-url($img) no-repeat;
+  width: image-width($img);
+  height: image-height($img);
+
+  @if($display) {
+    display: $display;
+  }
+
+  @if($ir) {
+    @include ir();
+  }
+
+}
+
+@mixin ir-image( $img, $display:false ) {
+  @include bg-image($img, $display);
+
+  @include ir();
+}
+
+@mixin retina-image($img, $display: inline-block, $scale:2) {
+  background: image-url($img) no-repeat;
+  display: $display;
+  $width: floor(image-width($img)/ $scale);
+  $height: floor(image_height($img) / $scale);
+
+  width: $width;
+  height: $height;
+
+  @include background-size($width $height, 100% 100%);
+}
+
+@mixin ir-retina($img, $display: inline-block) {
+  @include retina-image($img, $display);
+  @include ir();
+}
+
+@mixin ir-button( $img, $display:block ) {
+  background: image-url($img) no-repeat;
+  width: image-width($img);
+  height: image-height($img);
+  display: $display;
+  @extend .ir;
+}
+
+// Custom media-query mixin
+
+@mixin media($type) {
+  @if $type == mobile or $type == small-only {
+    @media #{$small-only} { @content; }
+  }
+  @else if $type == tablet or $type == medium-up {
+    @media #{$medium-up} { @content; }
+  }
+  @else if $type == desktop or $type == large-up {
+    @media #{$large-up} { @content; }
+  }
+  @else if $type == retina {
+    @media #{$retina} { @content; }
+  }
+  @else if $type == ipad {
+    @media #{$ipad} { @content; }
+  }
+}
+
+//REM font values
+@mixin rem-font($pixel-value) {
+  @if $legacy-support {
+    font-size: $pixel-value * 1px;
+  }
+
+  font-size: rem-calc($pixel-value);
+  //  font-weight: $font-weight;
+}
+
+// Typography
+
+@mixin helvetica() {
+  font-family: $helvetica;
+}
+
+@mixin museo-bold() {
+  font-family: MuseoBold, $helvetica;
+}
+
+@mixin restrict-height-by-lines($lines, $font-size:16, $line-height:1) {
+  display: block;
+  overflow: hidden;
+  height: $lines * $line-height * $font-size + 1 * 1px;
+//  @include ellipsis( false );
+}
+
+@mixin hyphenate() {
+  -ms-word-break: break-all;
+  word-break: break-all;
+
+  // Non standard for webkit
+  word-break: break-word;
+
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+
+  word-wrap: break-word;
+}
+
+// The direction refers to which way the "nub" is pointing
+// Options are: left, right, up and down
+
+@mixin nub($direction, $color:#fff, $size:5px) {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border: solid $size;
+
+  @if $direction == right {
+    border-color: rgba(#000, 0) rgba(#000, 0) rgba(#000, 0) $color;
+  }
+  @else if $direction == left {
+    border-color: rgba(#000, 0) $color rgba(#000, 0) rgba(#000, 0);
+  }
+  @else if $direction == top {
+    border-color: rgba(#000, 0) rgba(#000, 0) $color rgba(#000, 0);
+  }
+  @else if $direction == down {
+    border-color: $color rgba(#000, 0) rgba(#000, 0) rgba(#000, 0);
+  }
+
+  //          top: auto;
+
+}
+
+@mixin unselectable() {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+// CSS Transform
+// This function is needed in order to put in all of the browser prefixes.
+// The normal tranform attribute still does not work properly across all browsers.
+// In order to receive the transitionEnd events then you will still need to use the vendor prefixes
+//@mixin translate3d($x,$y,$z) {
+//  -ms-transform:translate($x,$y);
+//
+//  -webkit-transform: translate3d($x,$y,$z);
+//  -moz-transform: translate3d($x,$y,$z);
+//  -o-transform: translate3d($x,$y,$z);
+//  transform: translate3d($x,$y,$z);
+//}
+
+
+@mixin grabbable() {
+  cursor: ew-resize;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+
+  &:active {
+    //cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+  }
+}

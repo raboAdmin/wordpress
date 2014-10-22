@@ -1,0 +1,17 @@
+$helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$myriad: "Myriad Pro", $helvetica;
+
+@mixin font-family($font-name, $weight:400, $style:normal) {
+  font-family: $font-name, $helvetica;
+  font-weight: $weight;
+  font-style: $style;
+}
+
+@mixin myriad($weight:400, $style:normal) {
+  @include font-family("Myriad Pro", $weight, $style);
+}
+
+@mixin verdana() {
+  @include font-family("Verdana");
+}

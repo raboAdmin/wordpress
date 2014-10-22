@@ -1,0 +1,48 @@
+// General styles
+
+// No classes/IDs, only basic element selectors
+h1, h2, h3, h4, h5, h6, p {
+  @include myriad(200);
+  margin-bottom: 0;
+}
+
+h1 {
+  font-size: 45px;
+}
+
+h2 {
+  font-size: 36px;
+  color: $heading-blue;
+  line-height: 1.0;
+}
+
+h3, h4, p, label {
+  color: $text-grey;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 21px;
+}
+
+
+label {
+  @include rem-font(18);
+  @include myriad(300);
+}
+
+p, input {
+  @include rem-font(18);
+  color: $text-grey;
+  margin-bottom: 0;
+}
+ul {
+  list-style: none;
+}
+
+li, a {
+  @include myriad(200);
+}
